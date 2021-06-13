@@ -1,0 +1,32 @@
+version: '3.5'
+
+services:
+    #######################################
+    # Triple-A
+    #######################################
+    triple-a-employer-user-auth-operation:
+        container_name: triple-a-employer-user-auth-operation
+        env_file: "env/${ENV}.env"
+        build:
+            context: "."
+            dockerfile: Dockerfile
+        image: triple-a-employer-user-auth-operation
+
+        networks:
+            - orbis-net
+        ports:
+            - "4103:4000"
+        command: npm run start:prod
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: unless-stopped
+
+networks:
+        orbis-net:
+            name: orbis-network
+            ipam:
+                driver: default
+                config:
+                    - subnet: "172.16.238.0/24"
+                    - subnet: "2001:3984:3989::/64"

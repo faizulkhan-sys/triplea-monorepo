@@ -1,0 +1,13 @@
+{
+  "name": "triple-a-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "devDependencies": {
+    "lerna": "4.0.0"
+  },
+  "dependencies": {
+    "prettier": "^2.2.1"
+  }
+}

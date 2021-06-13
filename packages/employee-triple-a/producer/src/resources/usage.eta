@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Statement</title>
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div style="padding: 30px 30px 30px 35px;">
+			<!-- Heading content -->
+			<div class="header" style="
+              position: absolute;
+              left: 0px;
+              right: 0px;
+              top: 0px;
+              bottom: 0px;
+              height: 58px;
+              width: 100%;
+              background: #29a5a5;
+              border-bottom: 3px solid #5cd6d6;
+            ">
+				<table style="width:100%;padding: 0;margin:0;">
+					<tr style="width:100%;padding: 0;margin:0;">
+						<td style="width:50%;padding: 0;">
+							<div style="text-align: left;margin: 0 10px;">
+								<div style="width: 100%; text-align: left; padding: 13px 60px 13px 20px">
+									<img src="https://i.ibb.co/x51jgKX/Screen-Shot-2020-12-31-at-10-00-07-AM.png" alt="logo"
+                    height="27px">
+                </div>
+								</div>
+						</td>
+						<td style="width:50%;padding: 0;margin: 0;">
+							<div style="text-align: right; margin: 0 30px;">
+								<div style="width: 100%; padding: 9px 0">
+									<div>
+										<div style="
+                        font-weight: bold;
+                        font-size: 16px;
+                        line-height: 100%;
+                        letter-spacing: -1px;
+                        color: #ffffff;
+                        flex: none;
+                        order: 0;
+                        flex-grow: 0;
+                        margin: 0px 0px;
+                      ">
+											Marketing Dept
+										</div>
+										<div style="
+                        font-weight: normal;
+                        font-size: 14px;
+                        line-height: 19px;
+                        letter-spacing: -1px;
+                        color: #ffffff;
+                        flex: none;
+                        order: 1;
+                        padding-right: 45px;
+                        flex-grow: 0;
+                      ">
+											<%= it.date %>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="content" style="width: 100%;text-align: center;">
+				<!-- Access content -->
+				<div class="access"
+					style="width: 100%;font-weight: bold;font-size: 10px; line-height:14px; padding-top: 50px;">
+					<div class="title-text">
+						<div>Access</div>
+					</div>
+					<table style="width:100%;padding: 0;margin:0; font-size: 12px;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:25%;padding: 0;">
+								<div style="text-align: left;margin: 0;">
+									<div style="text-align: left; padding: 13px 20px 13px 0px">
+										<div><strong>Total Employees</strong></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:55%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div>
+										<div class="main-top">
+											<div class="main-bot" style="width:100%"></div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:20%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div class="text-right">
+										<%= it.report.total_employees %> |
+										100%
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;padding: 0;margin:0;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:25%;padding: 0;">
+								<div style="text-align: left;margin: 0;">
+									<div style="text-align: left; padding: 13px 20px 13px 0px">
+										<div><strong>Approved</strong></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:55%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div>
+										<div class="main-top">
+											<div class="main-bot"
+												style="width:<%= ((it.report.approved/it.report.total_employees  * 100).toFixed(2)   * 100) / 100 %>%"></div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:20%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div class="text-right">
+										<%= it.report.approved %> |
+										<%= ((it.report.approved/it.report.total_employees * 100).toFixed(2) * 100) / 100%>%
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;padding: 0;margin:0;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:25%;padding: 0;">
+								<div style="text-align: left;margin: 0;">
+									<div style="text-align: left; padding: 13px 20px 13px 0px">
+										<div><strong>Active</strong></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:55%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div>
+										<div class="main-top">
+											<div class="main-bot"
+												style="width:<%= ((it.report.active/it.report.total_employees * 100).toFixed(2) * 100) / 100%>%"></div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:20%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div class="text-right">
+										<%= it.report.active %> |
+										<%= ((it.report.active/it.report.total_employees * 100).toFixed(2) * 100) / 100 %>%
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+					<table style="width:100%;padding: 0;margin:0;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:25%;padding: 0;">
+								<div style="text-align: left;margin: 0;">
+									<div style="text-align: left; padding: 13px 20px 13px 0px">
+										<div><strong>Not Invited</strong></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:55%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div>
+										<div class="main-top">
+											<div class="main-bot"
+												style="width: <%= ((it.report.not_invited/it.report.total_employees * 100).toFixed(2) * 100) / 100 %>%">
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:20%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div class="text-right">
+										<%= it.report.not_invited %> |
+										<%= ((it.report.not_invited/it.report.total_employees * 100).toFixed(2) * 100) / 100 %>%
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- Monthly content -->
+				<div class="monthly"
+					style="width: 100%;font-weight: bold;font-size: 10px; line-height:14px;padding-top: 20px;">
+					<div class="title-text">
+						<div>Monthly</div>
+					</div>
+					<table style="width:100%;padding: 0;margin:0;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:33%;padding: 0;">
+								<div
+									style="text-align: left;margin:10px 10px 10px 0;padding: 20px 10px 20px 10px; background-color: rgb(240, 240, 240); border: 1px solid rgb(240, 240, 240);box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);">
+									<div style="text-align: left;">
+										<div class="monthly-title ">Total advanced</div>
+										<div class="monthly-currency">$ <%= Intl.NumberFormat('en-IN').format(it.advance_details.total_advanced) %></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:33%;padding: 0;">
+								<div
+									style="text-align: left;margin:10px 10px 10px 0;padding: 20px 10px 20px 10px; background-color: rgb(240, 240, 240); border: 1px solid rgb(240, 240, 240);box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);">
+									<div style="text-align: left;">
+										<div class="monthly-title ">Total transactions</div>
+										<div class="monthly-currency"><%= it.advance_details.total_transactions %></div>
+									</div>
+								</div>
+							</td>
+							<td style="width:33%;padding: 0;">
+								<div
+									style="text-align: left;margin:10px 10px 10px 0;padding: 20px 10px 20px 10px; background-color: rgb(240, 240, 240); border: 1px solid rgb(240, 240, 240);box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);">
+									<div style="text-align: left;">
+										<div class="monthly-title ">Avg advances</div>
+										<div class="monthly-currency"><%= it.advance_details.average %>x</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- Avg Advance content -->
+				<div class="avg-advance"
+					style="width: 100%;font-weight: bold;font-size: 10px; line-height:14px; padding-top: 10px;">
+					<table style="width:100%;padding: 0;margin:0;">
+						<tr style="width:100%;padding: 0;margin:0;">
+							<td style="width:45%;padding: 0;">
+								<div style="text-align: left;margin: 0;">
+									<div style="text-align: left; padding: 13px 10px 13px 0px">
+										<div style="font-size: 16px;">Avg advanced by employee</div>
+										<div style="padding: 5px 5px 0 0;">*as a percentage of individual’s salary</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:47%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<div>
+										<div class="main-top">
+											<div class="main-bot" style="width:<%= it.advance_details.average %>%"></div>
+										</div>
+									</div>
+								</div>
+							</td>
+							<td style="width:8%;padding: 0;margin: 0;">
+								<div style="text-align: right; margin: 0 10px;">
+									<%= it.advance_details.average %>%
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- Admin Split and Hot Days content -->
+				<table class="adminsplit-hotdays" style="width:100%;padding: 0;margin:0; padding-top: 20px;">
+					<tr style="width:100%;padding: 0;margin:0;">
+						<!-- Admin Split -->
+						<td style="width:65%;padding: 0;">
+							<div class="title-text"><strong>Admin Split</strong></div>
+							<table style="width:100%;padding: 0;margin-top:10px;">
+								<tr style="width:100%;padding: 0;margin:0;">
+									<!-- Admin split data -->
+									<td style="width:40%;padding: 0;font-size:14px; text-align: left;">
+										<div style="margin:5px"><strong><%= it.report.invited %></strong> Invited</div>
+										<div style="margin:5px"><strong><%= it.report.requested %></strong> Requested</div>
+										<div style="margin:5px"><strong><%= it.report.not_approved %></strong> Not-approved</div>
+										<div style="margin:5px"><strong><%= it.report.not_invited %></strong> Not-invited</div>
+									</td>
+									<td style="width:60%;padding: 0;margin: 0;">
+										<!-- Admin split chart -->
+										<div id="chart" style="width: 100%;">
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<!-- Hot Days content -->
+						<td style="width:35%;padding: 0;margin: 0;">
+							<div class="title-text"><strong>Hot Days</strong></div>
+							<div class="clearfix pb-2 pt-5">
+								<div style="height: 160px; width: 160px; position: relative">
+									<!-- Dot lines -->
+									<div class="dot-lines">
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+										<div style="
+                      border-top: 1px dashed lightgrey;
+                      height: 19px;
+                    "></div>
+									</div>
+									<!-- 1st hot days data -->
+									<div class="hot-day-one">
+										<div style="position: absolute; top: 0; left: 10px">
+											<div style="
+                          height: 140px;
+                          width: 20px;
+                          background-color: #dedede;
+                          opacity: 0.3;
+                          border-radius: 3.12245px;
+                        "></div>
+										</div>
+										<div style="position: absolute; bottom: 20px; left: 10px">
+											<div
+												style="width: 20px;background-color: #5cd6d6;border-radius: 3.12245px;height:<%= it.advance_details.hot_days[0] === undefined ? 0: it.advance_details.hot_days[0].count %>px;">
+											</div>
+										</div>
+										<div style="
+                        position: absolute;
+                        top: 0px;
+                        left: 10px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 10px;
+                        width: 20px;
+                        text-align: center;
+                      ">
+									<%= it.advance_details.hot_days[0] === undefined ? 0: it.advance_details.hot_days[0].count %>
+										</div>
+										<div style="
+                        position: absolute;
+                        bottom: 0px;
+                        left: 10px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 12px;
+                        line-height: 15px;
+                      ">1st
+										</div>
+									</div>
+									<!-- 2nd hot days data -->
+									<div class="hot-day-two">
+										<div style="position: absolute; top: 0; left: 50px">
+											<div style="
+                          height: 140px;
+                          width: 20px;
+                          background-color: #dedede;
+                          opacity: 0.3;
+                          border-radius: 3.12245px;
+                        "></div>
+										</div>
+										<div style="position: absolute; bottom: 20px; left: 50px">
+											<div
+												style="width: 20px;background-color: #5cd6d6;border-radius: 3.12245px;height:<%= it.advance_details.hot_days[1] === undefined ? 0: it.advance_details.hot_days[1].count %>px;">
+											</div>
+										</div>
+										<div style="
+                        position: absolute;
+                        top: 0px;
+                        left: 50px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 10px;
+                        width: 20px;
+                        text-align: center;
+                      ">
+												<%= it.advance_details.hot_days[1] === undefined ? 0: it.advance_details.hot_days[1].count %>
+										</div>
+										<div style="
+                        position: absolute;
+                        bottom: 0px;
+                        left: 50px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 12px;
+                        line-height: 15px;
+                      ">
+											2nd
+										</div>
+									</div>
+									<!-- 3rd hot days data -->
+									<div class="hot-day-three">
+										<div style="position: absolute; top: 0; left: 90px">
+											<div style="
+                          height: 140px;
+                          width: 20px;
+                          background-color: #dedede;
+                          opacity: 0.3;
+                          border-radius: 3.12245px;
+                        "></div>
+										</div>
+										<div style="position: absolute; bottom: 20px; left: 90px">
+											<div
+												style="width: 20px;background-color: #5cd6d6;border-radius: 3.12245px;height:<%= it.advance_details.hot_days[2] === undefined ? 0: it.advance_details.hot_days[2].count %>px;">
+											</div>
+
+										</div>
+										<div style="
+                        position: absolute;
+                        top: 0px;
+                        left: 90px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 10px;
+                        width: 20px;
+                        text-align: center;
+                      ">
+							<%= it.advance_details.hot_days[2] === undefined ? 0: it.advance_details.hot_days[2].count %>
+						
+										</div>
+										<div style="
+                        position: absolute;
+                        bottom: 0px;
+                        left: 90px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 12px;
+                        line-height: 15px;
+                      ">
+											3rd
+										</div>
+									</div>
+									<!-- 4th hot days data -->
+									<div class="hot-day-fourth">
+										<div style="position: absolute; top: 0; left: 130px">
+											<div style="
+                          height: 140px;
+                          width: 20px;
+                          background-color: #dedede;
+                          opacity: 0.3;
+                          border-radius: 3.12245px;
+                        "></div>
+										</div>
+										<div style="position: absolute; bottom: 20px; left: 130px">
+											<div
+												style="width: 20px;background-color: #5cd6d6;border-radius: 3.12245px;height:<%= it.advance_details.hot_days[3] === undefined ? 0: it.advance_details.hot_days[3].count %>px;">
+											</div>
+										</div>
+										<div style="
+                        position: absolute;
+                        top: 0px;
+                        left: 130px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 10px;
+                        width: 20px;
+                        text-align: center;
+                      ">
+								<%= it.advance_details.hot_days[3] === undefined ? 0: it.advance_details.hot_days[3].count %>
+											</div>
+										<div style="
+                        position: absolute;
+                        bottom: 0px;
+                        left: 130px;
+                        color: #000000;
+                        opacity: 0.34;
+                        font-weight: bold;
+                        font-size: 12px;
+                        line-height: 15px;
+                      ">
+											4th
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	var options = {
+    series: <%= it.chart %>,
+    colors: [
+      '#29A5A5',
+      '#64CD82',
+      '#F3E45C',
+      '#FF0000'
+    ],
+    labels: ['Invited', 'Requested', 'Not-approved', 'Not-invited'],
+    chart: {
+      width: 210,
+      type: 'donut',
+      animations:{
+          enabled: false
+        }
+    },
+    dataLabels: {
+      enabled: true,
+    },
+    legend: {
+      show: false
+    }
+  };
+  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  chart.render();
+</script>
+<style lang="scss" scoped>
+	html {
+		height: 842px;
+		width: 595px;
+	}
+
+	body {
+		height: 842px;
+		width: 595px;
+		margin: 0;
+		color: #00000099;
+		background: rgba(235, 233, 233, 0.616);
+		font-family: Open Sans, sans-serif;
+	}
+
+	.container {
+		height: 842px;
+		width: 595px;
+		background: #ffffff;
+		position: relative;
+	}
+
+	.title-text {
+		color: #000000;
+		text-align: left;
+		font-size: 18px;
+		margin: 10px 0;
+	}
+
+	.monthly-title {
+		font-size: 16px;
+		line-height: 100%;
+		letter-spacing: -1px;
+		color: #535353;
+	}
+
+	.monthly-currency {
+		letter-spacing: -1px;
+		padding: 5px 5px 0 0;
+		font-size: 12px;
+		color: #8b8b8b;
+	}
+
+	.main-top {
+		overflow: hidden;
+		text-align: center;
+		height: 15px;
+		width: 100%;
+		background-color: #f4f4f4;
+		box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.12);
+		border-radius: 12px;
+	}
+
+	.main-bot {
+		position: relative;
+		height: 15px;
+		border-radius: 12px;
+		background-color: #5cd6d6;
+		box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.12);
+	}
+
+	.hot-days {
+		width: 200px;
+		height: 200px;
+		background: red;
+		border: 1px dashed #000000;
+	}
+</style>
+
+</html>

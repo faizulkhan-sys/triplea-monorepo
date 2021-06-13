@@ -1,0 +1,35 @@
+export declare class SaDeductionDetails {
+    idx: string | null;
+    payroll_name: string;
+    company_name: string;
+    company_idx: string;
+    employee_type: string;
+    employee_name: string;
+    employee_idx: string;
+    state: string;
+    status: number;
+    payroll_start_date: string;
+    payroll_end_date: string;
+    final_deduction_run_date: string;
+    pre_deduction_run_date: string;
+    payroll_date: string;
+    next_deduction_run_time: string;
+    payroll_run_date: string;
+    next_payroll_run_date: string;
+    next_payroll_date: string;
+    next_deduction_run_date: string;
+    final_deduction_run_time: string;
+    pre_deduction_run_time: string;
+    cut_off_days: number;
+    employer_display_id: string;
+    employee_worker_id: string;
+    debit_pull: boolean;
+    advance_owed: number;
+    fee_extended: number;
+    amount_extended: number;
+    fee_owed: number;
+    created_on: Date;
+    is_active: boolean;
+    is_obsolete: boolean;
+    modified_on: Date | null;
+}

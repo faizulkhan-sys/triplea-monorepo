@@ -1,0 +1,6 @@
+export declare enum ChargeServiceType {
+    EMPLOYEE_SUB_FEE = "EMPLOYEE_SUB_FEE",
+    EMPLOYER_SUB_FEE = "EMPLOYER_SUB_FEE",
+    ACH_FEE = "ACH_FEE",
+    INSTANT_PAY_TO_CARD = "INSTANT_PAY_TO_CARD"
+}

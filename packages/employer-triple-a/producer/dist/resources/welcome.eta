@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Deduction Report</title>
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div style="padding: 30px 30px 30px 35px;">
+      <!-- Heading content -->
+      <div class="header" style="
+              position: absolute;
+              left: 0px;
+              right: 0px;
+              top: 0px;
+              bottom: 0px;
+              height: 58px;
+              width: 100%;
+              background: #29a5a5;
+              border-bottom: 3px solid #5cd6d6;
+            ">
+        <table style="width:100%;padding: 0;margin:0;">
+          <tr style="width:100%;padding: 0;margin:0;">
+            <td style="width:50%;padding: 0;">
+              <div style="text-align: left;margin: 0 10px;">
+                <div style="width: 100%; text-align: left; padding: 13px 60px 13px 20px">
+                  <img src="https://i.ibb.co/x51jgKX/Screen-Shot-2020-12-31-at-10-00-07-AM.png" alt="logo"
+                    height="27px">
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="content" style="width: 100%;text-align: center;">
+        <!-- Access content -->
+        <div
+          style="color:#000000;width: 100%;font-size: 14px; line-height:14px; padding-top: 50px; padding-bottom: 20px;">
+          <div class="title-text">
+            <div><strong>Keep your account secure</strong></div>
+          </div>
+          <table style="width:100%;">
+            <tr style="width:100%;">
+              <td>
+                <div style="text-align: left; padding: 13px 20px 13px 0px;line-height: 120%;">
+                  <div style="width:100">
+                    <img src="https://i.ibb.co/zSyhDL8/card.png" alt="card" style="width: 100%;">
+                  </div>
+                  <div>
+                    <p>You're almost ready to get going! Complete the registration process by clicking the button below to confirm your email address and add a password to keep your account secure.</p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr style="width:100%;padding: 0;margin:0;">
+            <td>
+         <a href="<%= it.link %>" target="_blank" style="text-decoration: none;"><div class="view-report"
+style="background-color:#29A5A5;border-radius:25px; height: 48px; width:60%;font-size:18px;margin-left:20%;">
+<div style="padding-top: 15px; color: #ffffff;">
+<b>Create Password</b>
+</div>
+</div>
+</a>
+</td>
+            </tr>
+          </table>
+        </div>
+        <hr style="opacity: 0.5;">
+
+        <!-- Monthly content -->
+        <div style="width: 100%;line-height:110%;">
+          <table style="width:100%;">
+            <tr>
+              <td>
+                <div
+                  style="border-radius:5px;text-align: center;margin:10px 0;padding: 20px 10px 20px 10px; background-color: rgb(240, 240, 240); border: 1px solid rgb(240, 240, 240);">
+                  <div style="text-align: center;">
+                    <div style="font-size: 16px;
+                    line-height: 100%;
+                    color: #8B8B8B;
+                    margin: 10px;"><b>Download OrbisPay for your phone</b></div>
+                    <div>
+                      <a href="" style="text-decoration: none; color: #ffffff;"><img src="https://i.ibb.co/R9QhVp5/google.png"
+                          alt="android_logo" height="50px"></a>
+                      <a href="" style="text-decoration: none; color: #ffffff;"><img src="https://i.imgur.com/Zux98QN.png" alt="ios_logo"
+                          height="50px"></a>
+                    </div>
+                  </div>
+                </div>
+                <div style="color: #8B8B8B;line-height: 130%;font-size: 13px;">
+                  <span> For queries drop us an email at <a href="mailto: support@orbispay.me"
+                      style="color:#29A5A5;">support@orbispay.me</a></span> <br>
+                  <span>&copy; Orbis Financial Technologies, Inc.</span> <br>
+                  <span><a href="" style="color:#8B8B8B;"><b>Unsubscribe</b></a></span>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<style lang="scss" scoped>
+  html {
+    height: 750px;
+    width: 595px;
+  }
+
+  body {
+    height: 750px;
+    width: 595px;
+    margin: 0;
+    color: #00000099;
+    background: rgba(235, 233, 233, 0.616);
+    font-family: Open Sans, sans-serif;
+  }
+
+  .container {
+    height: 750px;
+    width: 595px;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .title-text {
+    color: #000000;
+    text-align: left;
+    font-size: 24px;
+    margin: 10px 0 0 0;
+  }
+
+  .view-report:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
+</style>
+
+</html>

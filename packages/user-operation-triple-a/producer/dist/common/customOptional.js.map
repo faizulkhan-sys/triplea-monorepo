@@ -1,0 +1,1 @@
+{"version":3,"file":"customOptional.js","sourceRoot":"","sources":["../../src/common/customOptional.ts"],"names":[],"mappings":";;;AAAA,qDAAgE;AAEhE,SAAgB,UAAU,CAAC,iBAAqC;IAC9D,OAAO,4BAAU,CAAC,CAAC,CAAC,EAAE,KAAK,EAAE,EAAE;QAC7B,OAAO,KAAK,KAAK,IAAI,IAAI,KAAK,KAAK,SAAS,IAAI,KAAK,KAAK,EAAE,CAAC;IAC/D,CAAC,EAAE,iBAAiB,CAAC,CAAC;AACxB,CAAC;AAJD,gCAIC"}

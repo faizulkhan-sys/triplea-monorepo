@@ -1,0 +1,37 @@
+import { SetPassword } from '@dtos/SetPassword.dto';
+import { EmployerLoginDto } from '@dtos/employerLogin.dto';
+import { ChangeUserPass } from '@dtos/ChangeUserPass.dto';
+import { IResponse } from '@common/interfaces/response.interface';
+import { EmployerAuthService } from '@modules/employer-auth/employer-auth.service';
+import { HttpService } from '@nestjs/common';
+import { ForgotPassword, ResetPassword } from '@dtos/Derived.dto';
+import { Users } from '@entities/Users';
+import { Request } from 'express';
+import { UserLoginDto } from '@dtos/Derived.dto';
+import { BlockUnblock } from '@dtos/BlockUnblock.dto';
+import { Permission } from '@entities/Permission';
+import { Protocol } from '@entities/Protocol';
+import { ProtocolUpdateDto } from '@dtos/protocol.dto';
+import { AddUpdatesettings } from '@dtos/create-setting.dto';
+export declare class EmployerAuthController {
+    private readonly authMasterService;
+    private readonly httpService;
+    constructor(authMasterService: EmployerAuthService, httpService: HttpService);
+    loginEmployer(employerLogin: EmployerLoginDto, req: Request): Promise<any>;
+    loginUser(userLogin: UserLoginDto, req: Request): Promise<any>;
+    checkLink(token: string): Promise<IResponse>;
+    SetPassword(passwordDto: SetPassword): Promise<IResponse>;
+    getCaptcha(): Promise<string>;
+    getMappedRoutes(userRequesting: Users): Promise<unknown[]>;
+    BlockUnblockUser(idx: string, userType: string, blockUnblock: BlockUnblock, req: Request): import("rxjs").Observable<any>;
+    ResetMpin(idx: string, userType: string): import("rxjs").Observable<any>;
+    getAllPermission(permission_type?: string): Promise<Permission[]>;
+    getMany(): Promise<Protocol[]>;
+    findOne(userRequesting: Users): Promise<import("../../entities/EmployerSettings.entity").EmployerSettings>;
+    update(userRequesting: Users, AddUpdateSettingDto: AddUpdatesettings): Promise<IResponse>;
+    forgotPassword(forgotPassword: ForgotPassword): Promise<IResponse>;
+    resetPassword(resetPassword: ResetPassword): Promise<IResponse>;
+    changeUserPassword(passwords: ChangeUserPass, user: Users): Promise<IResponse>;
+    updateProtocol(idx: string, protocolUpdate: ProtocolUpdateDto): Promise<IResponse>;
+    getOnePermissionByIdx(idx: string): Promise<Permission>;
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"ChangeInvite.js","sourceRoot":"","sources":["../../src/dtos/ChangeInvite.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAA8C;AAC9C,qDAAuC;AAQvC,MAAa,qBAAqB;CASjC;AADA;IAPC,qBAAW,CAAC;QACZ,WAAW,EAAE,sDAAsD;QACnE,OAAO,EAAE,SAAS;KAClB,CAAC;IACD,sBAAI,CAAC,CAAC,SAAS,EAAE,WAAW,EAAE,WAAW,CAAC,EAAE;QAC5C,OAAO,EAAE,qDAAqD;KAC9D,CAAC;;qDACa;AARhB,sDASC"}

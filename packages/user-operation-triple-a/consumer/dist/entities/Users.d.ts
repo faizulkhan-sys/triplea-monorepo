@@ -1,0 +1,36 @@
+import { UsersTemp } from '@entities/UsersTemp';
+import { CompanyUser } from './CompanyUser';
+import { UserType } from './UserType';
+export declare class Users {
+    id: number;
+    idx: string | null;
+    user_type: UserType | null;
+    username: string;
+    contact_name: string;
+    time_management_system: string | null;
+    company_internalhr_system: string | null;
+    payroll_system: string | null;
+    password: string;
+    email: string | null;
+    address: string | null;
+    phone_number: string | null;
+    company_id: string;
+    display_id: string;
+    legal_name: string;
+    employer_no: string | null;
+    phone_ext: string | null;
+    company_name: string | null;
+    fb_id: string | null;
+    google_id: string | null;
+    zip_code: string | null;
+    created_on: Date;
+    is_active: boolean;
+    is_superadmin: boolean;
+    companyUsers: CompanyUser[];
+    usersTemps: UsersTemp[];
+    is_obsolete: boolean;
+    receive_questionare_form: boolean;
+    receive_signed_agreement: boolean;
+    modified_on: Date | null;
+    constructor(contact_name?: string, email?: string, zip_code?: string, company_name?: string, is_superadmin?: boolean);
+}
