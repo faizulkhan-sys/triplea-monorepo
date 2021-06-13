@@ -1,1 +1,1 @@
-# triplea-monorepo-
+# triplea-monorepo
