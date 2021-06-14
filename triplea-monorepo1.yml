@@ -23,7 +23,9 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        containerRegistry: 'orbis-docker-con'
+        repository: 'orbispay/triplea-monorepo'
+        command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/consumer/Dockerfile'
         tags: |
           $(tag)
