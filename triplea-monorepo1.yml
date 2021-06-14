@@ -58,7 +58,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employee-triplea-monorepo'
+        repository: 'orbispay/employee-triplea-monorepo-producer'
         command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/producer/Dockerfile'
         tags: |
@@ -68,7 +68,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employer-triplea-monorepo'
+        repository: 'orbispay/employer-triplea-monorepo-producer'
         command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/packages/employer-triple-a/producer/Dockerfile'
         tags: |
@@ -79,7 +79,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/user-operation-triplea-monorepo'
+        repository: 'orbispay/user-operation-triplea-monorepo-producer'
         command: buildAndPush
         dockerfile: '$(Build.SourcesDirectory)/packages/user-operation-triple-a/producer/Dockerfile'
         tags: |
