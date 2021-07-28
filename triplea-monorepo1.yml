@@ -40,7 +40,7 @@ stages:
     pool:
       name: 'prod-agent-pool'
 
-    environment: 'UATENV'
+    environment: 'UAT-orbis'
     strategy:
       runOnce:
          deploy:
