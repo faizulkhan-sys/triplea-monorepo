@@ -33,7 +33,7 @@ stages:
 
 
 - stage: BuildU
-  displayName: UAT Build image
+  displayName: UAT Build images
   jobs:
   - deployment: Build
     displayName: UAT Build
