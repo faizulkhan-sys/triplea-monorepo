@@ -13,12 +13,12 @@ variables:
 
 stages:
 - stage: Build
-  displayName: Build image
+  displayName: Dev Build image
   jobs:
   - job: Build
-    displayName: Build
+    displayName: Dev Build
     pool:
-      name: 'Default'
+      name: 'prod-agent-pool'
     steps:
     - task: Docker@2
       displayName: Build an image
@@ -30,57 +30,26 @@ stages:
         tags: |
           $(tag)
 
+
+
+
+stages:
+- stage: Build
+  displayName: UAT Build image
+  jobs:
+  - job: Build
+    displayName: UAT Build
+    pool:
+      name: 'prod-agent-pool'
+    steps:
     - task: Docker@2
       displayName: Build an image
       inputs:
         containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employer-triplea-monorepo'
+        repository: 'orbispay/employee-triplea-monorepo'
         command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/employer-triple-a/consumer/Dockerfile'
+        dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/consumer/Dockerfile'
         tags: |
           $(tag)
 
-
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/user-operation-triplea-monorepo'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/user-operation-triple-a/consumer/Dockerfile'
-        tags: |
-          $(tag)
-
-
-
-
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employee-triplea-monorepo-producer'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/producer/Dockerfile'
-        tags: |
-          $(tag)
-
-    - task: Docker@2
-      displayName: Build a image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employer-triplea-monorepo-producer'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/employer-triple-a/producer/Dockerfile'
-        tags: |
-          $(tag)
-
-
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/user-operation-triplea-monorepo-producer'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/user-operation-triple-a/producer/Dockerfile'
-        tags: |
-          $(tag)
+    
