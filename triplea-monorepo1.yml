@@ -35,20 +35,26 @@ stages:
 - stage: BuildU
   displayName: UAT Build image
   jobs:
-  - job: Build
+  - deployment: Build
     displayName: UAT Build
     pool:
       name: 'prod-agent-pool'
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employee-triplea-monorepo'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/consumer/Dockerfile'
-        tags: |
-          $(tag)
+
+    environment: 'orbis-UAT-ENV'
+    strategy:
+      runOnce:
+         deploy:
+
+           steps:
+           - task: Docker@2
+             displayName: Build an image
+             inputs:
+               containerRegistry: 'orbis-docker-con'
+               repository: 'orbispay/employee-triplea-monorepo'
+               command: buildAndPush
+               dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/consumer/Dockerfile'
+               tags: |
+                 $(tag)
 
 
 
