@@ -33,23 +33,3 @@ stages:
 
 
 
-stages:
-- stage: Build
-  displayName: UAT Build image
-  jobs:
-  - job: Build
-    displayName: UAT Build
-    pool:
-      name: 'prod-agent-pool'
-    steps:
-    - task: Docker@2
-      displayName: Build an image
-      inputs:
-        containerRegistry: 'orbis-docker-con'
-        repository: 'orbispay/employee-triplea-monorepo'
-        command: buildAndPush
-        dockerfile: '$(Build.SourcesDirectory)/packages/employee-triple-a/consumer/Dockerfile'
-        tags: |
-          $(tag)
-
-    
