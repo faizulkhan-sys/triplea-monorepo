@@ -1,0 +1,280 @@
+version: '3.5'
+
+services:
+    #######################################
+    # Plaid Integration Service
+    #######################################
+    plaid-integration-service:
+        container_name: plaid-integration-service
+        env_file: "/home/azureuser/orbis/bank-auth-service/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/bank-auth-service"
+            dockerfile: Dockerfile
+        image: plaid-integration-service
+        command: npm run start:prod
+        networks:
+        - orbis-net
+        ports:
+        - "4099:8000"        
+
+        restart: unless-stopped
+
+
+    plaid-integration-service-prod:
+        container_name: plaid-integration-service-prod
+        env_file: "/home/azureuser/orbis/bank-auth-service-prod/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/bank-auth-service-prod"
+            dockerfile: Dockerfile
+        image: plaid-integration-service-prod
+        command: npm run start:prod
+        networks:
+        - orbis-net
+        ports:
+        - "5099:8000"        
+
+        restart: unless-stopped
+
+  
+    
+    #######################################
+    # Bank
+    #######################################
+    bank-auth-card-db-writer:
+        container_name: bank-auth-card-db-writer
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth/consumer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth/consumer"
+            dockerfile: Dockerfile
+        image: bank-auth-card-db-writer
+
+        networks:
+            - orbis-net
+        ports:
+            - "4098:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stopped
+
+
+
+
+    bank-auth-card-db-writer-prod:
+        container_name: bank-auth-card-db-writer-prod
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth-prod/consumer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth-prod/consumer"
+            dockerfile: Dockerfile
+        image: bank-auth-card-db-writer
+
+        networks:
+            - orbis-net
+        ports:
+            - "5098:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stopped
+
+
+
+
+    #######################################
+    # Bank
+    #######################################
+    bank-auth-card-operation:
+        container_name: bank-auth-card-operation
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-card-operation
+
+        networks:
+            - orbis-net
+        ports:
+            - "4097:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stopped
+
+
+
+
+    bank-auth-card-operation-prod:
+        container_name: bank-auth-card-operation-prod
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth-prod/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/card-bank-auth-prod/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-card-operation-prod
+
+        networks:
+            - orbis-net
+        ports:
+            - "5097:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stopped
+
+
+
+    
+    #######################################
+    # Bank
+    #######################################
+    bank-auth-disbursal-operation:
+        container_name: bank-auth-disbursal-operation
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/disbursal-bank-auth/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/disbursal-bank-auth/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-disbursal-operation
+
+        networks:
+            - orbis-net
+        ports:
+            - "4098:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stopped
+
+
+
+    bank-auth-disbursal-operation-prod:
+        container_name: bank-auth-disbursal-operation-prod
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/disbursal-bank-auth-prod/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/disbursal-bank-auth-prod/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-disbursal-operation-prod
+
+        networks:
+            - orbis-net
+        ports:
+            - "5098:4000"
+        command: npm run start:prod
+                        
+        restart: unless-stoppeds
+
+
+
+
+    #######################################
+    # Bank
+    #######################################
+    bank-auth-plaid-db-writer:
+        container_name: bank-auth-plaid-db-writer
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth/consumer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth/consumer"
+            dockerfile: Dockerfile
+        image: bank-auth-plaid-db-writer
+
+        networks:
+            - orbis-net
+        ports:
+            - "4095:4000"
+        command: npm run start:prod
+                                
+        restart: unless-stopped
+
+
+
+
+    bank-auth-plaid-db-writer-prod:
+        container_name: bank-auth-plaid-db-writer-prod
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth-prod/consumer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth-prod/consumer"
+            dockerfile: Dockerfile
+        image: bank-auth-plaid-db-writer-prod
+
+        networks:
+            - orbis-net
+        ports:
+            - "5095:4000"
+        command: npm run start:prod
+                                
+        restart: unless-stopped
+
+
+
+    #######################################
+    # Bank
+    #######################################
+    bank-auth-plaid-operation:
+        container_name: bank-auth-plaid-operation
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-plaid-operation
+
+        networks:
+            - orbis-net
+        ports:
+            - "4096:4000"
+        command: npm run start:prod
+                  
+        restart: unless-stopped
+
+
+
+    bank-auth-plaid-operation-prod:
+        container_name: bank-auth-plaid-operation-prod
+        env_file: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth-prod/producer/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/refactored/bank-auth-monorepo/packages/plaid-bank-auth-prod/producer"
+            dockerfile: Dockerfile
+        image: bank-auth-plaid-operation-prod
+
+        networks:
+            - orbis-net
+        ports:
+            - "5096:4000"
+        command: npm run start:prod
+                  
+        restart: unless-stopped
+
+    #######################################
+    # Tabapay Encryptor Service
+    #######################################
+    tabapay-encryptor-service:
+        container_name: tabapay-encryptor-service
+        env_file: "/home/azureuser/orbis/tabapay-encrypter/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/tabapay-encrypter"
+        image: tabapay-encryptor-service
+        networks:
+        - orbis-net
+        ports:
+        - "4095:8080"
+        volumes:
+            - .:/usr/app
+        restart: unless-stopped
+
+
+
+    tabapay-encryptor-service-prod:
+        container_name: tabapay-encryptor-service-prod
+        env_file: "/home/azureuser/orbis/tabapay-encrypter-prod/env/${ENV}.env"
+        build:
+            context: "/home/azureuser/orbis/tabapay-encrypter-prod"
+        image: tabapay-encryptor-service
+        networks:
+        - orbis-net
+        ports:
+        - "5095:8080"
+        volumes:
+            - .:/usr/app
+        restart: unless-stopped
+
+    
+networks:
+        orbis-net:
+            name: orbis-network
+            ipam:
+                driver: default
+                config:
+                    - subnet: "172.16.238.0/24"
+                    - subnet: "2001:3984:3989::/64"

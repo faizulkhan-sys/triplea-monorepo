@@ -3,10 +3,10 @@ import { decrypt } from '../utils/cipher';
 import * as fs from 'fs';
 import * as path from 'path';
 
-let file = `${__dirname}/../../env/${process.env.NODE_ENV}.env`;
+let file = `${__dirname}/../../../env/${process.env.NODE_ENV}.env`;
 
 if (!fs.existsSync(path.resolve(file))) {
-  file = `${__dirname}/../../env/dev.env`;
+  file = `${__dirname}/../../../env/dev.env`;
 }
 dotenv.config({ path: file, debug: false });
 
